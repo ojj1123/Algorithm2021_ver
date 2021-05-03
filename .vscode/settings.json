@@ -37,6 +37,20 @@
         "xmemory0": "cpp",
         "xstddef": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "iterator": "cpp",
+        "stack": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "queue": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp",
+        "fstream": "cpp",
+        "functional": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "sstream": "cpp",
+        "unordered_map": "cpp",
+        "valarray": "cpp"
     }
 }
