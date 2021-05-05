@@ -25,3 +25,4 @@ int main() {
 	cout << max_length;
 	return 0;
 }
+// https://lmcoa15.tistory.com/10
