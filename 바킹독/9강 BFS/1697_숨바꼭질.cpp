@@ -1,13 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define FAST ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 
 int dist[100002];
 int n, k;
 int main() {
-	FAST;
+	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	cin >> n >> k;
-	fill(dist, dist + 100001, -1);
+	fill(dist, dist + 100002, -1);
 	dist[n] = 0;
 	queue<int> Q;
 	Q.push(n);
@@ -22,5 +21,4 @@ int main() {
 		}
 	}
 	cout << dist[k];
-	return 0;
 }

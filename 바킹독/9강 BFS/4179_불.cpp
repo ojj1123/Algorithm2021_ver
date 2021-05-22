@@ -1,87 +1,60 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define FAST ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 #define X first
 #define Y second
 
 string board[1002];
-int fire[1002][1002];
-int hoon[1002][1002];
+int dist1[1002][1002];
+int dist2[1002][1002];
 int r, c;
-int dx[4] = { 1,0,-1,0 };
-int dy[4] = { 0,1,0,-1 };
-
+int dx[] = { 1,0,-1,0 };
+int dy[] = { 0,1,0,-1 };
 int main() {
-	FAST;
-	cin >> r >> c;//행 열
-	queue<pair<int, int>> Q1, Q2;
+	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+	cin >> r >> c;
+	queue<pair<int, int>> q, q1;
 	for (int i = 0; i < r; i++) {
-		fill(fire[i], fire[i] + c, -1);
-		fill(hoon[i], hoon[i] + c, -1);
+		fill(dist1[i], dist1[i] + c, -1);
+		fill(dist2[i], dist2[i] + c, -1);
 	}
 	for (int i = 0; i < r; i++) cin >> board[i];
 	for (int i = 0; i < r; i++) {
 		for (int j = 0; j < c; j++) {
 			if (board[i][j] == 'F') {
-				Q1.push({ i,j });
-				fire[i][j] = 0;
+				dist1[i][j] = 0;
+				q.push({ i,j });
 			}
 			if (board[i][j] == 'J') {
-				Q2.push({ i,j });
-				hoon[i][j] = 0;
+				dist2[i][j] = 0;
+				q1.push({ i, j });
 			}
 		}
 	}
-	// for (int i = 0; i < r; i++) {
-	// 	for (int j = 0; j < c; j++) {
-	// 		char ch;
-	// 		cin >> ch;
-	// 		if (ch != 'F') {
-	// 			fire[i][j] = -1;
-	// 			if (ch == 'J') Q2.push({ i,j });
-	// 		}
-	// 		if (ch != 'J') {
-	// 			hoon[i][j] = -1;
-	// 			if (ch == 'F') Q1.push({ i,j });
-	// 		}
-	// 	}
-	// }
-	while (!Q1.empty()) {//fire
-		auto cur = Q1.front(); Q1.pop();
-		for (int dir = 0; dir < 4; dir++) {
-			int nx = cur.X + dx[dir];
-			int ny = cur.Y + dy[dir];
+	while (!q.empty()) {
+		auto cur = q.front(); q.pop();
+		for (int d = 0; d < 4; d++) {
+			int nx = cur.X + dx[d];
+			int ny = cur.Y + dy[d];
 			if (nx < 0 || nx >= r || ny < 0 || ny >= c) continue;
-			if (fire[nx][ny] >= 0 || board[nx][ny]=='#') continue;
-			fire[nx][ny] = fire[cur.X][cur.Y] + 1;
-			Q1.push({ nx,ny });
+			if (board[nx][ny] == '#' || dist1[nx][ny] >= 0) continue;
+			dist1[nx][ny] = dist1[cur.X][cur.Y] + 1;
+			q.push({ nx,ny });
 		}
 	}
-	while (!Q2.empty()) {//hoon
-		auto cur = Q2.front(); Q2.pop();
-		for (int dir = 0; dir < 4; dir++) {
-			int nx = cur.X + dx[dir];
-			int ny = cur.Y + dy[dir];
+	while (!q1.empty()) {
+		auto cur = q1.front(); q1.pop();
+		for (int d = 0; d < 4; d++) {
+			int nx = cur.X + dx[d];
+			int ny = cur.Y + dy[d];
 			if (nx < 0 || nx >= r || ny < 0 || ny >= c) {
-				cout << hoon[cur.X][cur.Y] + 1;
+				cout << dist2[cur.X][cur.Y] + 1;
 				return 0;
 			}
-			if (hoon[nx][ny] >= 0 || board[nx][ny] == '#') continue;
-			if (fire[nx][ny]!=-1 && hoon[cur.X][cur.Y] + 1 >= fire[nx][ny]) continue;
-			hoon[nx][ny] = hoon[cur.X][cur.Y] + 1;
-			Q2.push({ nx,ny });
+			if (board[nx][ny] == '#' || dist2[nx][ny] >= 0) continue;
+			if (dist1[nx][ny] != -1 && dist1[nx][ny] <= dist2[cur.X][cur.Y] + 1) continue;
+			dist2[nx][ny] = dist2[cur.X][cur.Y] + 1;
+			q1.push({ nx,ny });
 		}
 	}
 	cout << "IMPOSSIBLE";
-	//int ans = -1;
-	//for (int i = 0; i < r; i++) {
-	//	for (int j = 0; j < c; j++) {
-	//		if ((i > 0 && i < r - 1) && (j > 0 && j < c - 1)) continue;
-	//		ans = max(ans, hoon[i][j]);
-	//	}
-	//}
-	//if (ans == -1) cout << "IMPOSSIBLE";
-	//else cout << ans + 1;
-	return 0;
 }
-// 왜 내가짠 코드는 메모리 초과가 나지?
