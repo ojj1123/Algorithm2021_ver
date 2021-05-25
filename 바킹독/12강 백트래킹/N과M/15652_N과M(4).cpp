@@ -23,7 +23,7 @@ int main(void) {
 	solve(0);
 }
 
-// 더 빠른 코드 4ms
+// 4ms
 // #include <bits/stdc++.h>
 // using namespace std;
 // int arr[10];
