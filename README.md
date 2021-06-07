@@ -1,4 +1,8 @@
 # Algorithm2021_ver
  Problem-Solving using C, C++ and Python 
 
-## ¹éÁØ »çÀÌÆ® ¹®Á¦ÁıÀ¸·Î °øºÎÇÕ´Ï´Ù.
+## ë°±ì¤€ ì‚¬ì´íŠ¸ ë¬¸ì œì§‘ìœ¼ë¡œ ê³µë¶€í•©ë‹ˆë‹¤.
+
+## solved.acë¡œ ë¬¸ì œí’€ì´ì— í¥ë¯¸ë¥¼ ë”í•˜ëŠ” ì¤‘ì…ë‹ˆë‹¤^^
+
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=ojj1123)](https://solved.ac/ojj1123/)
