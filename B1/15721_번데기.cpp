@@ -18,13 +18,13 @@ int main()
 	int cnt;
 	int total = n * (n + 7);
 	int temp = total / 2;
-	if (anw == 0) {//»·
+	if (anw == 0) {
 		cnt = total - (2 * ((total / 2) - t) + 1);
 		if (temp - n <= t && t <= temp) {
 			cnt = total - ((n + 1) + (temp - t));
 		}
 	}
-	else {//µ¥±â
+	else {
 		cnt = total - (2 * ((total / 2) - t));
 		if (temp - n <= t && t <= temp) {
 			cnt = total - (temp - t);

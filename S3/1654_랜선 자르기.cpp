@@ -8,7 +8,7 @@ int main() {
 	cin >> k >> n;
 	vector<long long> arr(k);
 	for (long long i = 0; i < k; i++) {
-		cin >> len;//·£¼± ±æÀÌµé ¹è¿­
+		cin >> len;
 		arr[i] = len;
 		if (len > max_) max_=len;
 	}
@@ -42,4 +42,4 @@ int main() {
 	cout << res;
 	return 0;
 }
-//¿À¹öÇÃ·Î¿ì
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ã·Î¿ï¿½

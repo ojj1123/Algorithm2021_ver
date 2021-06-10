@@ -11,14 +11,14 @@ int main() {
 	while (t--) {
 		string str, temp;
 		int idx = 0, res = -1;
-		vector<int> first(5, -1);//Ã¹ ±ÛÀÚµéÀÇ À§Ä¡
+		vector<int> first(5, -1);//ì²« ê¸€ìë“¤ì˜ ìœ„ì¹˜
 		getline(cin, str);
 		temp = str;
 		first[0] = idx++;
 		for (int i = 0; i < str.length(); i++) {
 			if (str[i] == ' ') {
 				first[idx] = i + 1;
-				idx++;//´Ü¾îÀÇ °³¼ö´Â idx
+				idx++;//ë‹¨ì–´ì˜ ê°œìˆ˜ëŠ” idx
 			}
 			else temp[i] = tolower(str[i]);
 		}
@@ -30,8 +30,8 @@ int main() {
 				flag = true;
 				break;
 			}
-		}//Ã¹ ¹®ÀÚ °Ë»ç
-		if (!flag) {//´Ü¾îµéÀÇ Ã¹ ¹®ÀÚ°¡ ÀÌ¹Ì ´ÜÃàÅ°·Î ÁöÁ¤µÇ¼­ ³ª¸ÓÁö¿¡¼­ ÇÔ
+		}//ì²« ë¬¸ì ê²€ì‚¬
+		if (!flag) {//ë‹¨ì–´ë“¤ì˜ ì²« ë¬¸ìê°€ ì´ë¯¸ ë‹¨ì¶•í‚¤ë¡œ ì§€ì •ë˜ì„œ ë‚˜ë¨¸ì§€ì—ì„œ í•¨
 			for (int i = 0; i < str.length(); i++) {
 				if (temp[i]!=' ' && !ch[temp[i] - 'a']) {
 					ch[temp[i] - 'a'] = true;

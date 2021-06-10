@@ -7,6 +7,7 @@ int n, ans;
 int farnode;
 
 void dfs(int v, int dist) {
+	vis[v] = 1;
 	if (ans < dist) {
 		ans = dist;
 		farnode = v; // 가장 멀리 있는 노드로 설정함

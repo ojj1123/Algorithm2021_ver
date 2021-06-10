@@ -10,7 +10,7 @@ int main() {
 	cin >> n;
 	for (int i = 0; i < n; i++) {
 		int temp;
-		cin >> temp;//서로 다름
+		cin >> temp;
 		cnt[temp] = true;
 	}
 	cin >> x;

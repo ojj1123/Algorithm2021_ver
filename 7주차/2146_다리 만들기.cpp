@@ -42,10 +42,10 @@ int main() {
 		queue<pair<int, int>> Q;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				dist[i][j] = -1;//is번째가 아닌 경우
+				dist[i][j] = -1;
 				if (graph[i][j] == is) {
-					Q.push({ i,j });//시작점
-					dist[i][j] = 0; // is번째 섬들은 다 거리가 0
+					Q.push({ i,j });
+					dist[i][j] = 0;
 				}
 			}
 		}
@@ -64,7 +64,7 @@ int main() {
 		}
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (graph[i][j] != is && graph[i][j] != 0) { // 해당 섬이 아니고(==is번째 섬이 아니고), 바다가 아니면  ==> 다른 섬
+				if (graph[i][j] != is && graph[i][j] != 0) {
 					if (dist[i][j] - 1 < ans) ans = dist[i][j] - 1;
 				}
 			}

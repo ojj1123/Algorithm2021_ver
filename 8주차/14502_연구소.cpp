@@ -27,8 +27,8 @@ void bfs() {
 }
 void dfs(int k) {
 	if (k == 3) {
-		board2 = board; // 3°³ÀÇ º®À» ¼¼¿öÁØ °Í(¹ÙÀÌ·¯½º ÆÛÁö±â Àü)
-		bfs(); // ¹ÙÀÌ·¯½º ÆÛÁü
+		board2 = board; // 3ê°œì˜ ë²½ì„ ì„¸ì›Œì¤€ ê²ƒ(ë°”ì´ëŸ¬ìŠ¤ í¼ì§€ê¸° ì „)
+		bfs(); // ë°”ì´ëŸ¬ìŠ¤ í¼ì§
 		virus = virus2;
 		int cnt = 0;
 		for (int i = 0; i < n; i++) {
@@ -37,16 +37,16 @@ void dfs(int k) {
 			}
 		}
 		ans = max(ans, cnt);
-		board = board2; // ÆÛÁö±â ÀüÀ¸·Î µ¹·ÁÁÜ
+		board = board2; // í¼ì§€ê¸° ì „ìœ¼ë¡œ ëŒë ¤ì¤Œ
 		return;
 	}
 	for (int i = 0; i < empSize; i++) {
 		if (!isused[i]) {
 			isused[i] = 1;
-			board[emp[i].first][emp[i].second] = 1; // º®À¸·Î ¹Ù²ãÁÜ
+			board[emp[i].first][emp[i].second] = 1; // ë²½ìœ¼ë¡œ ë°”ê¿”ì¤Œ
 			dfs(k + 1);
-			//dfs °¡ Á¾·áÇÏ¸é
-			board[emp[i].first][emp[i].second] = 0; // ºó °÷À¸·Î ¹Ù²ãÁÜ
+			//dfs ê°€ ì¢…ë£Œí•˜ë©´
+			board[emp[i].first][emp[i].second] = 0; // ë¹ˆ ê³³ìœ¼ë¡œ ë°”ê¿”ì¤Œ
 			isused[i] = 0;
 		}
 	}

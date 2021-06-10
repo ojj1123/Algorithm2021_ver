@@ -19,13 +19,13 @@ int main() {
 			else {
 				bool flag = 1;
 				for (int a = 0; a < cnt; a++) {
-					if (vec[a].front() == board[i]) { // °°Àº °ÍÀÌ ÀÖÀ¸¸é
+					if (vec[a].front() == board[i]) { // ê°™ì€ ê²ƒì´ ìžˆìœ¼ë©´
 						vec[a].push_back(board[i]);
 						flag = 0;
 						break;
 					}
 				}
-				if (flag) vec[cnt++].push_back(board[i]); // °°Àº °ÍÀÌ ¾øÀ¸¸é
+				if (flag) vec[cnt++].push_back(board[i]); // ê°™ì€ ê²ƒì´ ì—†ìœ¼ë©´
 			}
 		}
 	}

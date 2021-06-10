@@ -20,7 +20,7 @@ int main() {
 		}
 		for (int i = 0; i < k; i++) {
 			int x, y;
-			cin >> x >> y;// x-->m: °¡·Î, y-->n: ¼¼·Î
+			cin >> x >> y;// x-->m: ê°€ë¡œ, y-->n: ì„¸ë¡œ
 			board[y][x] = 1;
 		}
 		queue < pair<int, int> > Q;

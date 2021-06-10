@@ -1,11 +1,11 @@
-// 1926_±×¸² ¹®Á¦¶û À¯»çÇÔ.
+// 1926_ê·¸ë¦¼ ë¬¸ì œë‘ ìœ ì‚¬í•¨.
 #include <bits/stdc++.h>
 using namespace std;
 #define FAST ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 
 int board[1002][1002];
 bool vis[1002];
-int n, m;//Á¤Á¡ÀÇ °³¼ö, °£¼±ÀÇ °³¼ö
+int n, m;//ì •ì ì˜ ê°œìˆ˜, ê°„ì„ ì˜ ê°œìˆ˜
 
 int main() {
 	FAST;

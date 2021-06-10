@@ -9,7 +9,7 @@ int main(void) {
 	for (int i = 1; i <= n; i++) dp[i][1] = 1;
 	for (int j = 1; j <= k; j++) {
 		dp[0][j] = 1;
-		dp[1][j] = j; // ±âÀú
+		dp[1][j] = j; // ê¸°ì €
 	}
 	for (int i = 2; i <= n; i++) {
 		for (int j = 2; j <= k; j++) {

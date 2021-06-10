@@ -9,7 +9,7 @@ int main()
 	unsigned int s;
 	int n;
 	cin >> s;
-	n = sqrt((double)s * 2);//¹«½¼ ±Ù°Å·Î?
+	n = sqrt((double)s * 2);
 	while ((n*n) + n > s * 2)
 		n--;
 	cout << n;

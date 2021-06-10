@@ -7,7 +7,7 @@ void swapNum(char &a, char &b) {
 	a = b;
 	b = tmp;
 }
-int checkHorizental(char arr[][50], int i, int j, char target, int len) {//수평
+int checkHorizental(char arr[][50], int i, int j, char target, int len) {
 	int tempj = j;
 	int cnt = 0;
 	while (tempj <= len - 1) {
@@ -21,7 +21,7 @@ int checkHorizental(char arr[][50], int i, int j, char target, int len) {//수평
 	}
 	return cnt;
 }
-int checkVertical(char arr[][50], int i, int j, char target, int len) {//수직
+int checkVertical(char arr[][50], int i, int j, char target, int len) {
 	int tempi = i;
 	int cnt = 0;
 	while (tempi <= len - 1) {
@@ -45,7 +45,6 @@ int main() {
 			cin >> a[i][j];
 	int res = 0;
 	int cnt1 = 0, cnt2 = 0;
-	//수평
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n - 1; j++) {
 			swapNum(a[i][j], a[i][j + 1]);
@@ -63,8 +62,6 @@ int main() {
 
 		}
 	}
-	//cout << "///////////////////" << endl;
-	//수직
 	for (int i = 0; i < n - 1; i++) {
 		for (int j = 0; j < n; j++) {
 			swapNum(a[i][j], a[i + 1][j]);

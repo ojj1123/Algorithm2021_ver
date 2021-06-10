@@ -45,7 +45,7 @@ int main() {
 				if (board[i][j] != '.' && !vis[i][j]) {
 					point = emptyVec;
 					dfs(i, j, board[i][j]);
-					if (point.size() >= 4) { // 터트리는 곳이 4이상이면
+					if (point.size() >= 4) {
 						flag = 0;
 						for (auto p : point)
 							board[p.first][p.second] = '.';
@@ -54,7 +54,7 @@ int main() {
 				}
 			}
 		}
-		if (flag) break; // 4미만일 때,
+		if (flag) break;
 		else ans++;
 		remove();
 	}

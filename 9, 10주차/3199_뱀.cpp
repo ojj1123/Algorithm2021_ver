@@ -4,7 +4,7 @@ using namespace std;
 #define Y second
 int board[105][105];
 bool vis[105][105];
-int n, k, l; // º¸µåÅ©±â, »ç°ú°³¼ö, ¹æÇâÀüÈ¯È½¼ö
+int n, k, l; // ë³´ë“œí¬ê¸°, ì‚¬ê³¼ê°œìˆ˜, ë°©í–¥ì „í™˜íšŸìˆ˜
 char act[10002];
 deque<pair<int, int>> snake;
 int cnt;
@@ -13,19 +13,19 @@ bool outofbound(int x, int y) {
 	if (x<1 || x>n || y<1 || y>n) return 1;
 	return 0;
 }
-pair<int, int> direction(int posx, int posy, int d) { // °¢ ÁÂÇ¥ÀÇ ¹æÇâ¿¡ µû¸¥ ÀÌµ¿ÁÂÇ¥
+pair<int, int> direction(int posx, int posy, int d) { // ê° ì¢Œí‘œì˜ ë°©í–¥ì— ë”°ë¥¸ ì´ë™ì¢Œí‘œ
 	pair<int, int> res;
 	switch (d) {
-	case 0: // ¿À¸¥
+	case 0: // ì˜¤ë¥¸
 		res = { posx, posy + 1 };
 		break;
-	case 1: // ¾Æ·¡
+	case 1: // ì•„ë˜
 		res = { posx + 1, posy };
 		break;
-	case 2: // ¿Ş
+	case 2: // ì™¼
 		res = { posx, posy - 1 };
 		break;
-	case 3: // À§
+	case 3: // ìœ„
 		res = { posx - 1, posy };
 	}
 	return res;
@@ -42,9 +42,9 @@ void move() {
 			auto newHead = direction(head.X, head.Y, d);
 			nx = newHead.X, ny = newHead.Y;
 			snake.push_front({ nx, ny });
-			if (outofbound(nx, ny) || vis[nx][ny]) return; // º®ÀÌ°Å³ª ÀÌ¹Ì ¹æ¹®ÇßÀ¸¸é
+			if (outofbound(nx, ny) || vis[nx][ny]) return; // ë²½ì´ê±°ë‚˜ ì´ë¯¸ ë°©ë¬¸í–ˆìœ¼ë©´
 			if (board[nx][ny] == 1) {
-				board[nx][ny] = 0; // »ç°ú ¾ø¾Ú
+				board[nx][ny] = 0; // ì‚¬ê³¼ ì—†ì•°
 			}
 			else {
 				auto tail = snake.back();
@@ -58,9 +58,9 @@ void move() {
 			auto newHead = direction(head.X, head.Y, d);
 			nx = newHead.X, ny = newHead.Y;
 			snake.push_front({ nx, ny });
-			if (outofbound(nx, ny) || vis[nx][ny]) return; // º®ÀÌ°Å³ª ÀÌ¹Ì ¹æ¹®ÇßÀ¸¸é
+			if (outofbound(nx, ny) || vis[nx][ny]) return; // ë²½ì´ê±°ë‚˜ ì´ë¯¸ ë°©ë¬¸í–ˆìœ¼ë©´
 			if (board[nx][ny] == 1) {
-				board[nx][ny] = 0; // »ç°ú ¾ø¾Ú
+				board[nx][ny] = 0; // ì‚¬ê³¼ ì—†ì•°
 			}
 			else {
 				auto tail = snake.back();

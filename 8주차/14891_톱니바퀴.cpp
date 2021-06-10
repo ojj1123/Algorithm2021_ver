@@ -3,7 +3,7 @@ using namespace std;
 
 string wheel;
 deque<char> deq[4];
-int k; // È¸Àü È½¼ö
+int k; // íšŒì „ íšŸìˆ˜
 void rotation(deque<char>& d, int mode) {
 	if (mode == 1) {
 		char tmp = d.back();
@@ -23,15 +23,15 @@ int main(void) {
 	}
 	cin >> k;
 	while (k--) {
-		bool check[3] = { 0, }; // 1-2 : 0 / 2-3 : 1 / 3-4 : 2 »çÀÌ»çÀÌ ´Ù¸£¸é 1 °°À¸¸é 0
-		int num, dir; // Åé´Ï¹ÙÄûÀÇ index : num-1
+		bool check[3] = { 0, }; // 1-2 : 0 / 2-3 : 1 / 3-4 : 2 ì‚¬ì´ì‚¬ì´ ë‹¤ë¥´ë©´ 1 ê°™ìœ¼ë©´ 0
+		int num, dir; // í†±ë‹ˆë°”í€´ì˜ index : num-1
 		cin >> num >> dir;
 		vector<int> rotate(4, dir);
 		for (int i = 0; i < 3; i++) {
-			if (deq[i][2] != deq[i + 1][6]) { // ´Ù¸£¸é
-				check[i] = 1; // µ¹¸± ¼ö ÀÖÀ½
+			if (deq[i][2] != deq[i + 1][6]) { // ë‹¤ë¥´ë©´
+				check[i] = 1; // ëŒë¦´ ìˆ˜ ìˆìŒ
 			}
-		}// ´Ù¸¥Áö °°ÀºÁö
+		}// ë‹¤ë¥¸ì§€ ê°™ì€ì§€
 		if (num % 2 == 0) {
 			for (int i = 0; i < 4; i++)
 				if ((i + 1) % 2 == 1) rotate[i] = dir > 0 ? -1 : 1;
@@ -39,7 +39,7 @@ int main(void) {
 		else {
 			for (int i = 0; i < 4; i++)
 				if ((i + 1) % 2 == 0) rotate[i] = dir > 0 ? -1 : 1;
-		}// ´Ù µ·´Ù¸é È¸Àü¹æÇâ ÀúÀå
+		}// ë‹¤ ëˆë‹¤ë©´ íšŒì „ë°©í–¥ ì €ì¥
 		rotation(deq[num - 1], dir);
 		if (num == 1) {
 			for (int i = 0; i < 3; i++) {

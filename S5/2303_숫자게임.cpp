@@ -23,7 +23,6 @@ int main()
 		for (i = 0; i < 3; i++) {
 			for (j = i + 1; j < 4; j++) {
 				for (k = j + 1; k < 5; k++) {
-					//모든 경우가 다 뽑히고 있는가?
 					tempNum = vec[idx][i] + vec[idx][j] + vec[idx][k];
 					tempNum -= ((tempNum / 10) * 10);
 					if (maxNum < tempNum) maxNum = tempNum;
@@ -31,19 +30,7 @@ int main()
 			}
 		}
 		maxArr[idx] = make_pair(idx + 1, maxNum);
-	}//////////////////////
-
-	//sort(maxArr.begin(), maxArr.end(), compare);
-	// for (auto it = maxArr.begin(); it != maxArr.end(); it++)
-	// 	cout << it->first << " " << it->second << endl;
-	//int tempMax = maxArr[0].second;
-	//int resultIdx = 0;
-	//for (i = 1; i < n; i++) {
-	//	if (tempMax == maxArr[i].second)
-	//		resultIdx = i;
-	//	else break;
-	//}
-	//cout << maxArr[resultIdx].first;
+	}
 	int tempMax = maxArr[0].second;
 	int resultIdx = 0;
 	for (i = 0; i < n; i++) {

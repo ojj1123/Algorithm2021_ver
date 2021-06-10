@@ -1,7 +1,8 @@
+  
 #include <bits/stdc++.h>
 using namespace std;
 
-int board[52][52]; // º® : 1, ºó°ø°£ : 0 
+int board[52][52]; // ë²½ : 1, ë¹ˆê³µê°„ : 0 
 int n, m, ans;
 int r, c, d;
 int dx[] = { -1, 0, 1, 0 };
@@ -15,18 +16,18 @@ void solve(int x, int y, int d) {
 		ans++;
 		board[x][y] = 2;
 	}
-	for (int i = (d + 3); i >= d; i--) { // ¿ŞÂÊºÎÅÍ Â÷·Ê´ë·Î
+	for (int i = (d + 3); i >= d; i--) { // ì™¼ìª½ë¶€í„° ì°¨ë¡€ëŒ€ë¡œ
 		int search_dir = i % 4;
 		int nx = x + dx[search_dir];
 		int ny = y + dy[search_dir];
 		if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
-		if (board[nx][ny] == 0) { // Ã»¼Ò °¡´ÉÇÏ¸é
-			solve(nx, ny, search_dir); // ±×ÂÊÀ¸·Î ÀÌµ¿ÇÏ°í ¹æÇâµµ È¸Àü
+		if (board[nx][ny] == 0) { // ì²­ì†Œ ê°€ëŠ¥í•˜ë©´
+			solve(nx, ny, search_dir); // ê·¸ìª½ìœ¼ë¡œ ì´ë™í•˜ê³  ë°©í–¥ë„ íšŒì „
 			return;
 		}
-	} // ³× ¹æÇâ ¸ğµÎ ¼øÈ¸
-	// ³× ¹æÇâ ´Ù Å½»öÇß´Âµ¥ ¸ğµÎ Ã»¼Ò ºÒ°¡
-	if (board[x + backx[d]][y + backy[d]] == 1) return; //º®ÀÌ¸é
+	} // ë„¤ ë°©í–¥ ëª¨ë‘ ìˆœíšŒ
+	// ë„¤ ë°©í–¥ ë‹¤ íƒìƒ‰í–ˆëŠ”ë° ëª¨ë‘ ì²­ì†Œ ë¶ˆê°€
+	if (board[x + backx[d]][y + backy[d]] == 1) return; // ë²½ì´ë©´
 	else solve(x + backx[d], y + backy[d], d);
 }
 int main(void) {

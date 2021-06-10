@@ -1,4 +1,4 @@
-// ¹®Á¦ÀÇ Á¶°ÇÀ» Àß ÀĞ¾î¾ß ÇÏ´Â ¹®Á¦.
+// ì¡°ê±´ì„ ì˜ í™•ì¸í•´ì•¼ í•˜ëŠ” ë¬¸ì œ
 #include <bits/stdc++.h>
 using namespace std;
 #define FAST ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)

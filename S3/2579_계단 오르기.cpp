@@ -1,4 +1,4 @@
-// [Âü°í] https://mygumi.tistory.com/100
+// [ì°¸ê³ ] https://mygumi.tistory.com/100
 #include <bits/stdc++.h>
 using namespace std;
 #define FAST ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)

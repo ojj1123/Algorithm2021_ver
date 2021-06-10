@@ -7,7 +7,7 @@ using namespace std;
 int board[1002][1002];
 bool vis1[1002];
 bool vis2[1002];
-int n, m, v;//Á¤Á¡ÀÇ °³¼ö, °£¼±ÀÇ °³¼ö, ½ÃÀÛÇÒ Á¤Á¡ÀÇ ¹øÈ£
+int n, m, v;//ì •ì ì˜ ê°œìˆ˜, ê°„ì„ ì˜ ê°œìˆ˜, ì‹œì‘í•  ì •ì ì˜ ë²ˆí˜¸
 
 void DFS(int v) {
 	vis1[v] = 1;
@@ -17,7 +17,7 @@ void DFS(int v) {
 		DFS(i);
 	}
 }
-// DFS stackÀ¸·Î ±¸Çö
+// DFS stackìœ¼ë¡œ êµ¬í˜„
 // void DFS(int v) {
 // 	stack<int> S;
 // 	S.push(v);
@@ -65,6 +65,6 @@ int main() {
 	BFS(v);
 	return 0;
 }
-// ±×·¡ÇÁ ¹®Á¦ - ÀÎÁ¢¸®½ºÆ®¿Í ÀÎÁ¢Çà·Ä·Î ³ª´©¾îÁü
+// ê·¸ë˜í”„ ë¬¸ì œ - ì¸ì ‘ë¦¬ìŠ¤íŠ¸ì™€ ì¸ì ‘í–‰ë ¬ë¡œ ë‚˜ëˆ„ì–´ì§
 // https://gpfatp.blogspot.com/2018/11/boj-1260-dfs-bfs.html
-// https://mygumi.tistory.com/102 DFS stack ±¸Çö ÄÚµå
+// https://mygumi.tistory.com/102 DFS stack êµ¬í˜„ ì½”ë“œ

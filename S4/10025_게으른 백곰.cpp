@@ -6,7 +6,7 @@ constexpr auto N = 1000001;
 vector<int> vec(N);
 int main() {
 	FAST;
-	int n, k, g, x, end_Idx = -1; //n개의 양동이,  k만큼 닿을 수 있음. 
+	int n, k, g, x, end_Idx = -1;
 	cin >> n >> k;
 	for (int i = 0; i < n; i++) {
 		cin >> g >> x;

@@ -2,7 +2,7 @@
 using namespace std;
 
 string board[1002];
-int vis[1002][1002][2];//0: 안부순거 1: 부순거
+int vis[1002][1002][2];
 int n, m;
 int dx[] = { 1, 0, -1, 0 };
 int dy[] = { 0, 1, 0, -1 };
@@ -30,12 +30,10 @@ int main() {
 			if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
 			if (board[nx][ny] == '0' && vis[nx][ny][cwall] == -1) {
 				vis[nx][ny][cwall] = vis[cx][cy][cwall] + 1;
-
 				q.push({ nx,ny,cwall });
 			}
-			if (board[nx][ny] == '1') { // 가려는 곳이 벽이면
+			if (board[nx][ny] == '1') {
 				if (!cwall && vis[nx][ny][cwall + 1] == -1) {
-					// 벽을 아직 안지났고, 가려는 곳이 방문을 아직안한 곳
 					vis[nx][ny][cwall + 1] = vis[cx][cy][cwall] + 1;
 					q.push({ nx,ny,cwall + 1 });
 				}

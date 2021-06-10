@@ -11,7 +11,7 @@ int main() {
 	ans = abs(n - 100);
 	for (int i = 0; i < m; i++) {
 		int tmp; cin >> tmp;
-		check[tmp] = 1; // 고장난 숫자
+		check[tmp] = 1;
 	}
 	for (int i = 0; i <= 1000000; i++) {
 		string tmp = to_string(i);
