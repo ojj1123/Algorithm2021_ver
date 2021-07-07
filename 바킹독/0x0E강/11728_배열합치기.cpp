@@ -18,7 +18,7 @@ int main() {
     for(int i=0;i<n+m;i++) {
         if(aidx==n) vec.push_back(b[bidx++]);
         else if(bidx==m) vec.push_back(a[aidx++]);
-        else if(a[aidx]<=b[bidx]) vec.push_back(a[bidx++]);
+        else if(a[aidx]<=b[bidx]) vec.push_back(a[aidx++]);
         else vec.push_back(b[bidx++]);
     }
     for(int i=0;i<vec.size();i++) cout<<vec[i]<<' ';
