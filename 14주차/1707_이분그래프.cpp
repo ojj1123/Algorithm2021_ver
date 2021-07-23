@@ -1,3 +1,4 @@
+// 연결요소의 개수를 찾는 문제랑 흡사함.
 #include<bits/stdc++.h>
 using namespace std;
 #define endl '\n'
