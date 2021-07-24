@@ -3,10 +3,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
-
+#define MAX 1000002
 int n, lis_size;
-int arr[1002];
-int lis[1002];
+int arr[MAX];
+int lis[MAX];
 void init()
 {
 	cin >> n;
