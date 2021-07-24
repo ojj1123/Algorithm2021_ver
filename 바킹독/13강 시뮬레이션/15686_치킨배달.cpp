@@ -1,52 +1,64 @@
-// ½Ã°£º¹Àâµµ Àß ±¸ÇÏ±â.
-#include<bits/stdc++.h>
+// ì‹œê°„ë³µì¡ë„ ì˜ êµ¬í•˜ê¸°.
+#include <bits/stdc++.h>
 using namespace std;
 
 vector<vector<int>> dist(50, vector<int>(50, 0));
 int board[52][52];
-vector<pair<int, int>> house, chicken, chicken2; // Áı ÁÂÇ¥, Ä¡Å²Áı ÁÂÇ¥
+vector<pair<int, int>> house, chicken, chicken2; // ì§‘ ì¢Œí‘œ, ì¹˜í‚¨ì§‘ ì¢Œí‘œ
 bool isused[15];
 int n, m, chicken_cnt, ans = 5000;
-int dx[] = { 1, 0, -1, 0 };
-int dy[] = { 0, 1, 0, -1 };
-int distance() {
+int dx[] = {1, 0, -1, 0};
+int dy[] = {0, 1, 0, -1};
+int distance()
+{
 	int tmp, tot = 0;
-	for (auto& h : house) {
+	for (auto &h : house)
+	{
 		tmp = 5000;
-		for (auto& c : chicken2) {
-			tmp = min(tmp, abs(h.first - c.first) + abs(h.second - c.second)); // °¢ Áı¿¡ ´ëÇÑ °¢ Ä¡Å²ÁıÀÇ °Å¸®ÀÇ ÃÖ¼Ò
+		for (auto &c : chicken2)
+		{
+			tmp = min(tmp, abs(h.first - c.first) + abs(h.second - c.second)); // ê° ì§‘ì— ëŒ€í•œ ê° ì¹˜í‚¨ì§‘ì˜ ê±°ë¦¬ì˜ ìµœì†Œ
 		}
 		tot += tmp;
 	}
 	return tot;
 }
-void solve(int num, int k) {
-	if (k == m) { // Ä¡Å²ÁıÀ» m°³ ³²±â°í Æó¾÷
+void solve(int num, int k)
+{
+	if (k == m)
+	{ // ì¹˜í‚¨ì§‘ì„ mê°œ ë‚¨ê¸°ê³  íì—…
 		int tmp = distance();
 		ans = min(tmp, ans);
 		return;
 	}
-	for (int i = num; i < chicken_cnt; i++) {
-		if (!isused[i]) {
+	for (int i = num; i < chicken_cnt; i++)
+	{
+		if (!isused[i])
+		{
 			int cx = chicken[i].first;
 			int cy = chicken[i].second;
 			isused[i] = 1;
-			chicken2.push_back({ cx, cy }); // ³²±æ Ä¡Å²Áı
+			chicken2.push_back({cx, cy}); // ë‚¨ê¸¸ ì¹˜í‚¨ì§‘
 			solve(i + 1, k + 1);
 			chicken2.pop_back();
 			isused[i] = 0;
 		}
 	}
 }
-int main() {
+int main()
+{
 	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	cin >> n >> m;
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
 			cin >> board[i][j];
-			if (board[i][j] == 1) house.push_back({ i, j }); // Áı ÁÂÇ¥
-			else if (board[i][j] == 2) {
-				chicken.push_back({ i, j });
+			if (board[i][j] == 1)
+				house.push_back({i, j}); // ì§‘ ì¢Œí‘œ
+			else if (board[i][j] == 2)
+			{
+				chicken.push_back({i, j});
 				chicken_cnt++;
 			}
 		}

@@ -1,7 +1,9 @@
 # deque
-- restricted structure
-- ¾Õ/µÚ ¸ðµÎ »ðÀÔ/»èÁ¦ °¡´É
-- µ¦Àº ¸Þ¸ð¸®»ó¿¡ ¿¬¼ÓÀûÀ¸·Î Á¸ÀçÇÏÁö ¾ÊÀ½
 
-- Both vectors and deques provide a very similar interface and can be used for similar purposes, but internally both work in quite different ways: While vectors use a single array that needs to be occasionally reallocated for growth, the elements of a deque can be scattered in different chunks of storage, with the container keeping the necessary information internally to provide direct access to any of its elements in constant time and with a uniform sequential interface (through iterators).
---> µ¦°ú ¹éÅÍÀÇ Â÷ÀÌ¸¦ ¸»ÇØÁÖ°í ÀÖÀ½(deque reference)
+- restricted structure
+
+- ì•ž/ë’¤ ëª¨ë‘ ì‚½ìž…/ì‚­ì œ ê°€ëŠ¥
+
+- ë±ì€ ë©”ëª¨ë¦¬ìƒì— ì—°ì†ì ìœ¼ë¡œ ì¡´ìž¬í•˜ì§€ ì•ŠìŒ
+
+- Both vectors and deques provide a very similar interface and can be used for similar purposes, but internally both work in quite different ways: While vectors use a single array that needs to be occasionally reallocated for growth, the elements of a deque can be scattered in different chunks of storage, with the container keeping the necessary information internally to provide direct access to any of its elements in constant time and with a uniform sequential interface (through iterators). --> ë±ê³¼ ë°±í„°ì˜ ì°¨ì´ë¥¼ ë§í•´ì£¼ê³  ìžˆìŒ(deque reference)

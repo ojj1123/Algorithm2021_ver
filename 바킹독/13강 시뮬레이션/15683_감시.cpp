@@ -1,47 +1,65 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-
-vector<vector<int>> board(8, vector<int>(8, 0)); // °¨½ÃÇÑ ºÎºĞÀº -1·Î ¹Ù²ãÁà
+vector<vector<int>> board(8, vector<int>(8, 0)); // ê°ì‹œí•œ ë¶€ë¶„ì€ -1ë¡œ ë°”ê¿”ì¤˜
 vector<tuple<int, int, int>> vec;
 int cctv_cnt;
 int n, m, ans = 100;
 
-void move(int dir, int x, int y) {
-	switch (dir) {
-	case 0: // ³²
-		for (int i = x + 1; i < n; i++) {
-			if (board[i][y] == 6) break;
-			if (board[i][y] == 0)board[i][y] = -1;
+void move(int dir, int x, int y)
+{
+	switch (dir)
+	{
+	case 0: // ë‚¨
+		for (int i = x + 1; i < n; i++)
+		{
+			if (board[i][y] == 6)
+				break;
+			if (board[i][y] == 0)
+				board[i][y] = -1;
 		}
 		break;
-	case 1: // µ¿
-		for (int i = y + 1; i < m; i++) {
-			if (board[x][i] == 6) break;
-			if (board[x][i] == 0) board[x][i] = -1;
+	case 1: // ë™
+		for (int i = y + 1; i < m; i++)
+		{
+			if (board[x][i] == 6)
+				break;
+			if (board[x][i] == 0)
+				board[x][i] = -1;
 		}
 		break;
-	case 2: // ºÏ
-		for (int i = x - 1; i >= 0; i--) {
-			if (board[i][y] == 6) break;
-			if (board[i][y] == 0) board[i][y] = -1;
+	case 2: // ë¶
+		for (int i = x - 1; i >= 0; i--)
+		{
+			if (board[i][y] == 6)
+				break;
+			if (board[i][y] == 0)
+				board[i][y] = -1;
 		}
 		break;
-	case 3: // ¼­
-		for (int i = y - 1; i >= 0; i--) {
-			if (board[x][i] == 6) break;
-			if (board[x][i] == 0) board[x][i] = -1;
+	case 3: // ì„œ
+		for (int i = y - 1; i >= 0; i--)
+		{
+			if (board[x][i] == 6)
+				break;
+			if (board[x][i] == 0)
+				board[x][i] = -1;
 		}
 		break;
 	}
 }
-void dfs(int k) {
-	//ÀüÃ¼ cctv¸¦ ´Ù µ¹¸é, »ç°¢Áö´ë ÃÖ¼Ú°ª ¹İÈ¯
-	if (k == cctv_cnt) {
+void dfs(int k)
+{
+	//ì „ì²´ cctvë¥¼ ë‹¤ ëŒë©´, ì‚¬ê°ì§€ëŒ€ ìµœì†Ÿê°’ ë°˜í™˜
+	if (k == cctv_cnt)
+	{
 		int cnt = 0;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				if (board[i][j] == 0) cnt++;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				if (board[i][j] == 0)
+					cnt++;
 			}
 		}
 		//cout << cnt << '\n';
@@ -52,17 +70,20 @@ void dfs(int k) {
 	int x = get<1>(vec[k]);
 	int y = get<2>(vec[k]);
 
-	vector<vector<int>> board2 = board; // °¨½ÃÇÑ ºÎºĞÀº -1·Î ¹Ù²ãÁà
-	switch (cctv) {
+	vector<vector<int>> board2 = board; // ê°ì‹œí•œ ë¶€ë¶„ì€ -1ë¡œ ë°”ê¿”ì¤˜
+	switch (cctv)
+	{
 	case 1:
-		for (int dir = 0; dir < 4; dir++) {
+		for (int dir = 0; dir < 4; dir++)
+		{
 			move(dir, x, y);
 			dfs(k + 1);
 			board = board2;
 		}
 		break;
 	case 2:
-		for (int dir = 0; dir < 2; dir++) {
+		for (int dir = 0; dir < 2; dir++)
+		{
 			move(dir, x, y);
 			move(dir + 2, x, y);
 			dfs(k + 1);
@@ -70,18 +91,20 @@ void dfs(int k) {
 		}
 		break;
 	case 3:
-		for (int dir = 0; dir < 4; dir++) {
+		for (int dir = 0; dir < 4; dir++)
+		{
 			move(dir, x, y);
-			move((dir + 1)%4, x, y);
+			move((dir + 1) % 4, x, y);
 			dfs(k + 1);
 			board = board2;
 		}
 		break;
 	case 4:
-		for (int dir = 0; dir < 4; dir++) {
+		for (int dir = 0; dir < 4; dir++)
+		{
 			move(dir, x, y);
-			move((dir+1)%4, x, y);
-			move((dir+2)%4, x, y);
+			move((dir + 1) % 4, x, y);
+			move((dir + 2) % 4, x, y);
 			dfs(k + 1);
 			board = board2;
 		}
@@ -93,21 +116,23 @@ void dfs(int k) {
 		board = board2;
 		break;
 	}
-
 }
-int main() {
+int main()
+{
 	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	cin >> n >> m;
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < m; j++) {
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
 			cin >> board[i][j];
-			if (board[i][j] != 0 && board[i][j] != 6) {
-				cctv_cnt++;//cctvÀÇ ÃÑ °³¼ö
-				vec.push_back({ board[i][j], i, j });
+			if (board[i][j] != 0 && board[i][j] != 6)
+			{
+				cctv_cnt++; //cctvì˜ ì´ ê°œìˆ˜
+				vec.push_back({board[i][j], i, j});
 			}
 		}
 	}
 	dfs(0);
 	cout << ans;
-
 }
